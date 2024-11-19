@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Usage</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #FFE4E1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .storage-card {
+            background-color: #FFE4E1;
+            padding: 20px;
+            width: 400px;
+        }
+
+        .storage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .storage-info {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .storage-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .storage-capacity {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .progress-bar {
+            height: 16px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-segments {
+            display: flex;
+            height: 100%;
+        }
+
+        .segment {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .segment-1 {
+            background-color: #FF69B4;
+            width: 65%;
+        }
+
+        .segment-2 {
+            background-color: #98FB98;
+            width: 10%;
+        }
+
+        .segment-3 {
+            background-color: #FFD700;
+            width: 5%;
+        }
+
+        .segment-4 {
+            background-color: #808080;
+            width: 20%;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+            padding: 0 2px;
+        }
+
+        .legend-item {
+            width: 80px;
+            height: 4px;
+            border-radius: 2px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .legend-background {
+            flex-grow: 1;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+        }
+
+        .legend-1 .legend-color { background-color: #FF69B4; }
+        .legend-2 .legend-color { background-color: #98FB98; }
+        .legend-3 .legend-color { background-color: #FFD700; }
+        .legend-4 .legend-color { background-color: #808080; }
+
+    </style>
+</head>
+<body>
+    <div class="storage-card">
+        <div class="storage-header">
+            <div class="storage-info">
+                <span class="storage-name">SHIGUIRE SSD</span>
+            </div>
+            <div class="storage-capacity">321/490GB</div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-segments">
+                <div class="segment segment-1"></div>
+                <div class="segment segment-2"></div>
+                <div class="segment segment-3"></div>
+                <div class="segment segment-4"></div>
+            </div>
+        </div>
+        <div class="legend">
+            <div class="legend-item legend-1">
+                <div class="legend-color"></div>
+                <div class="legend-background"></div>
+            </div>
+            <div class="legend-item legend-2">
+                <div class="legend-color"></div>
+                <div class="legend-background"></div>
+            </div>
+            <div class="legend-item legend-3">
+                <div class="legend-color"></div>
+                <div class="legend-background"></div>
+            </div>
+            <div class="legend-item legend-4">
+                <div class="legend-color"></div>
+                <div class="legend-background"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateStorage(used, total) {
+            const storageText = document.querySelector('.storage-capacity');
+            storageText.textContent = `${used}/${total}GB`;
+        }
+    </script>
+</body>
+</html>
+
